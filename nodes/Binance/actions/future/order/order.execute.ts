@@ -38,7 +38,7 @@ export async function execute(
 		params.workingType = 'MARK_PRICE';
 	} else {
 		params.price = price;
-		params.reduceOnly = `${reduceOnly}`,
+		params.reduceOnly = `${reduceOnly}`;
 	}
 
 	const order = await binanceClient.futuresOrder({
