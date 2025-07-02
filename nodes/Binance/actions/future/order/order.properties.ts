@@ -34,6 +34,21 @@ export const properties: IBinanceFutureProperties = [
 		default: '',
 	},
 	{
+		displayName: 'Order Type',
+		name: 'orderType',
+		type: 'options',
+		required: true,
+		displayOptions: {
+			show: { resource: ['future'], operation: ['order'] },
+		},
+		options: [
+			{ name: 'LIMIT', value: 'LIMIT' },
+			{ name: 'STOP_MARKET', value: 'STOP_MARKET' },
+			{ name: 'TAKE_PROFIT', value: 'TAKE_PROFIT' },
+		],
+		default: 'LIMIT',
+	},
+	{
 		displayName: 'Quantity',
 		name: 'quantity',
 		type: 'number',
