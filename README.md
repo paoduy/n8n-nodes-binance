@@ -1,3 +1,4 @@
+# Update to support TP and SL
 
 ## How to install a n8n-nodes-binance
 
