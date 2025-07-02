@@ -35,9 +35,10 @@ export async function execute(
 	if(orderType === 'TAKE_PROFIT_MARKET' || orderType === 'STOP_MARKET') {
 		params.stopPrice = price;
 		params.closePosition = true;
+		params.workingType = 'MARK_PRICE';
 	} else {
 		params.price = price;
-		params.reduceOnly: `${reduceOnly}`,
+		params.reduceOnly = `${reduceOnly}`,
 	}
 
 	const order = await binanceClient.futuresOrder({
