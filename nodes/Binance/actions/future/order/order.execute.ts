@@ -27,15 +27,25 @@ export async function execute(
 	const quantity = this.getNodeParameter('quantity', index) as string;
 	const price = this.getNodeParameter('price', index) as string;
 	const reduceOnly = this.getNodeParameter('reduceOnly', index) as boolean;
+	const orderType = this.getNodeParameter('orderType', index) as string;
 
+	const params = {};
+	if(orderType === 'TAKE_PROFIT_MARKET' || orderType === 'STOP_MARKET') {
+		params.stopPrice = price;
+		params.closePosition = `true`;
+		params.workingType = `MARK_PRICE`;
+	} else {
+		params.price = price;
+	}
+	
 	const order = await binanceClient.futuresOrder({
 		symbol,
 		quantity,
-		price,
 		side: side as OrderSide_LT,
-		type: 'LIMIT',
+		type: orderType,
 		timeInForce: 'GTC',
 		reduceOnly: `${reduceOnly}`,
+		...params
 	});
 
 	return this.helpers.returnJsonArray(order as any);
