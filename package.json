@@ -1,5 +1,5 @@
 {
-	"name": "n8n-nodes-binance",
+	"name": "n8n-nodes-binance-tpsl",
 	"version": "0.0.4",
 	"description": "N8N nodes for Binance Exchange",
 	"keywords": [

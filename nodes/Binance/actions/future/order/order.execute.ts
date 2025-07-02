@@ -1,6 +1,6 @@
 import { IExecuteFunctions } from 'n8n-core';
 import { INodeExecutionData } from 'n8n-workflow';
-import createBinance, { OrderSide_LT } from 'binance-api-node';
+import createBinance, { NewFuturesOrder, OrderSide_LT } from 'binance-api-node';
 
 export async function execute(
 	this: IExecuteFunctions,
@@ -29,15 +29,16 @@ export async function execute(
 	const reduceOnly = this.getNodeParameter('reduceOnly', index) as boolean;
 	const orderType = this.getNodeParameter('orderType', index) as string;
 
-	const params = {};
+
+
+	const params  = {} as any;
 	if(orderType === 'TAKE_PROFIT_MARKET' || orderType === 'STOP_MARKET') {
 		params.stopPrice = price;
-		params.closePosition = `true`;
-		params.workingType = `MARK_PRICE`;
+		params.closePosition = true;
 	} else {
 		params.price = price;
 	}
-	
+
 	const order = await binanceClient.futuresOrder({
 		symbol,
 		quantity,
@@ -45,7 +46,7 @@ export async function execute(
 		type: orderType,
 		timeInForce: 'GTC',
 		reduceOnly: `${reduceOnly}`,
-		...params
+		...params,
 	});
 
 	return this.helpers.returnJsonArray(order as any);
