@@ -30,16 +30,16 @@
 		"prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
 	},
 	"files": [
-		"built"
+		"dist"
 	],
 	"n8n": {
 		"n8nNodesApiVersion": 1,
 		"credentials": [
-			"built/credentials/BinanceApi.credentials.js"
+			"dist/credentials/BinanceApi.credentials.js"
 		],
 		"nodes": [
-			"built/nodes/Binance/Binance.node.js",
-			"built/nodes/Binance/BinanceTrigger.node.js"
+			"dist/nodes/Binance/Binance.node.js",
+			"dist/nodes/Binance/BinanceTrigger.node.js"
 		]
 	},
 	"devDependencies": {
