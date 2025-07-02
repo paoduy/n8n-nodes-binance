@@ -37,6 +37,7 @@ export async function execute(
 		params.closePosition = true;
 	} else {
 		params.price = price;
+		params.reduceOnly: `${reduceOnly}`,
 	}
 
 	const order = await binanceClient.futuresOrder({
@@ -45,7 +46,6 @@ export async function execute(
 		side: side as OrderSide_LT,
 		type: orderType,
 		timeInForce: 'GTC',
-		reduceOnly: `${reduceOnly}`,
 		...params,
 	});
 
