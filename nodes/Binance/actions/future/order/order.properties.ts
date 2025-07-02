@@ -45,6 +45,7 @@ export const properties: IBinanceFutureProperties = [
 			{ name: 'LIMIT', value: 'LIMIT' },
 			{ name: 'STOP_MARKET', value: 'STOP_MARKET' },
 			{ name: 'TAKE_PROFIT', value: 'TAKE_PROFIT' },
+			{ name: 'TAKE_PROFIT_MARKET', value: 'TAKE_PROFIT_MARKET' },
 		],
 		default: 'LIMIT',
 	},
