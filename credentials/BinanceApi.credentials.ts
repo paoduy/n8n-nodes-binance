@@ -30,6 +30,18 @@ export class BinanceApi implements ICredentialType {
 			},
 			default: '',
 		},
+		{
+			displayName: 'httpBase',
+			name: 'httpBase',
+			type: 'string',
+			default: 'https://testnet.binance.vision/api',
+		},
+		{
+			displayName: 'httpFutures',
+			name: 'httpFutures',
+			type: 'string',
+			default: 'https://testnet.binancefuture.com/api',
+		},
 	];
 
 	// // This credential is currently not used by any node directly
